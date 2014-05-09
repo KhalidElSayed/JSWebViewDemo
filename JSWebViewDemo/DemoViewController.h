@@ -12,4 +12,5 @@
 @interface DemoViewController : NSViewController
 @property (weak) IBOutlet WebView *webView;
 
+- (IBAction)buttonPressed:(id)sender;
 @end

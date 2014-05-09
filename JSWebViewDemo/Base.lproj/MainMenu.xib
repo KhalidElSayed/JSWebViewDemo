@@ -678,7 +678,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFF-Rb-Am7">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                        <rect key="frame" x="0.0" y="49" width="480" height="311"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO"/>
                         <connections>
@@ -687,13 +687,26 @@
                             <outlet property="resourceLoadDelegate" destination="w0b-I8-ufb" id="MfL-Ym-hqY"/>
                         </connections>
                     </webView>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u9Y-vq-NhF">
+                        <rect key="frame" x="199" y="13" width="82" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ayj-iR-HPc">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="buttonPressed:" target="irt-bC-iLT" id="rZ0-0r-K3G"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
         </window>
         <customObject id="w0b-I8-ufb" customClass="JavascriptController"/>
         <viewController id="irt-bC-iLT" customClass="DemoViewController">
             <connections>
+                <outlet property="theButton" destination="u9Y-vq-NhF" id="s3g-dF-RH1"/>
                 <outlet property="webView" destination="rFF-Rb-Am7" id="xQo-lp-hs0"/>
+                <outlet property="webview" destination="rFF-Rb-Am7" id="If7-rc-OZu"/>
             </connections>
         </viewController>
     </objects>

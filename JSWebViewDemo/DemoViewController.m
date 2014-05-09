@@ -11,6 +11,8 @@
 
 @interface DemoViewController ()
 
+@property (nonatomic, strong) JavascriptController *jsController;
+
 @end
 
 @implementation DemoViewController
@@ -22,9 +24,9 @@
     [NSApp setDelegate: self];
     
     /* register Javascript Controller for JS */
-    JavascriptController *jsController = [JavascriptController sharedInstance];
+    self.jsController = [JavascriptController sharedInstance];
     id win = [self.webView windowScriptObject];
-    [win setValue:jsController forKey:@"JavascriptController"];
+    [win setValue:self.jsController forKey:@"JavascriptController"];
 	
     /* Ask webKit to load the test.html file from our resources directory. */
 	[[self.webView mainFrame] loadRequest:
@@ -33,4 +35,9 @@
        [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"]]]];
 }
 
+- (IBAction)buttonPressed:(id)sender {
+    NSArray *args = @[@"OBJC PUSHED"];
+    [[self.webView windowScriptObject] callWebScriptMethod:@"javascriptCaller" withArguments:args];
+    
+}
 @end
