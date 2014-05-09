@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            var javascriptController = window.JavascriptController;
+            function testFunction() {
+                console.log("tested");
+                javascriptController.logMethod_('changed');
+                document.write('changed');
+            }
+        </script>
+    </head>
+    <body>
+        Hello World!
+        <br /><br />
+        <a href="javascript:testFunction();">Click Me!</a>
+    </body>
+</html>
